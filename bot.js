@@ -9,7 +9,7 @@ client.on('message', (message) => {
     var prefix = '!Kn' //The text before commands, you can set this to whatever you want
 
     //Ping/Pong Command
-    if (msg === prefix + 'PING')) {
+    if (message.content.startsWith(prefix + "ping")) {
         message.channel.send("pong!");
     }
 
@@ -17,7 +17,7 @@ client.on('message', (message) => {
     if (message.channel.id === '387075592929017867') { //Checks if the message is in the specific channel
         if (isNaN(message.content)) { //Checks if the message is not a question, if it's not, the following code will run
             message.delete() //This deletes the message
-            message.author.send('Please put a question mark in your message!')
+            message.channel.send('Please put a question mark in your message!')
         }
     }
 });
