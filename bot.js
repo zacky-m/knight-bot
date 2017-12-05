@@ -13,7 +13,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 
-    let myRole = message.guild.roles.get("386959013809487873");
+    let myRole = member.roles.get("386959013809487873");
 
     if ((!message.content("?")) && (!message.member.roles.has(myRole))) {
         message.delete(1000); //Supposed to delete message
