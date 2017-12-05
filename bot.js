@@ -12,7 +12,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    if (message.content.startsWith("?")) {
+    if (!message.content.startsWith("||say ")) {
         message.delete(1000); //Supposed to delete message
     }
 });
