@@ -1,18 +1,13 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 const client = new Discord.Client();
-const prefix = "!Kn"
-const args = message.content.slice(prefix.length).trim().split(/ +/g);
-const command = args.shift().toLowerCase();
 
-client.on('ready', () => {
-
-    console.log('I am ready!');
+client.on("ready", () => {
+    console.log("I am ready!");
 });
 
-client.on('message', message => {
-
-    if (command === "ping") {
-        message.channel.send("pong!"); 
+client.on("message", (message) => {
+    if (message.content.startsWith("ping")) {
+        message.channel.send("pong!");
     }
 });
 
