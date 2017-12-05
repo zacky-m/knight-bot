@@ -14,11 +14,6 @@ client.on('message', message => {
     if (command === "ping") {
         message.channel.send("pong!"); 
     }
-
-    if (command !== "?") {
-        message.delete(0)
-        .then(msg => message.channel.send("Please put a '?' in your question next time"));
-    }
 });
 
 client.on("guildMemberAdd", (member) => {
