@@ -16,8 +16,8 @@ client.on('message', message => {
     }
 
     if (command !== "?") {
-        message.delete()
-        then. (msg => message.channel.send("Please put a '?' in your question next time"));
+        message.delete(0)
+        .then(msg => message.channel.send("Please put a '?' in your question next time"));
     }
 });
 
