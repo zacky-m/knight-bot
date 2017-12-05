@@ -14,8 +14,10 @@ client.on('message', message => {
 client.on('message', message => {
     let myRole = message.guild.roles.find("name", "Meme King");
 
-    if ((!message.content("?")) &&(message.member.roles.has(myRole))) {
-        message.delete(1000); //Supposed to delete message
+    if (!message.content("?")) {
+        if (message.member.roles.has(myRole)) {
+            message.delete(1000); //Supposed to delete message
+        }
     }
 });
 
