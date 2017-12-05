@@ -9,7 +9,7 @@ client.on('message', (message) => {
     var prefix = '!Kn' //The text before commands, you can set this to whatever you want
 
     //Ping/Pong Command
-    if (msg --- prefix + 'Ping')) {
+    if (msg === prefix + 'PING')) {
         message.channel.send("pong!");
     }
 
