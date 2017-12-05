@@ -16,11 +16,4 @@ client.on('message', message => {
     }
 });
 
-client.on("guildMemberAdd", (member) => {
-
-    let role = message.guild.roles.get("387029449574580234");
-    member.addRole(role).catch(console.error);
-
-}
-
 client.login(process.env.BOT_TOKEN);
