@@ -7,7 +7,14 @@ client.on('ready', () => {
 
 client.on('message', message => {
     if (message.content === 'ping') {
-      message.reply('pong');
+        message.reply('pong');
+    }
+});
+
+client.on('message', message => {
+    if (message.content.endsWith("?")) {
+        message.delete(1000); //Supposed to delete message
+        message.channel.send(message.content.slice(5, message.content.length));
     }
 });
 
