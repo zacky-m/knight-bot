@@ -14,7 +14,7 @@ client.on('message', (message) => {
 bot.on('guildMemberAdd', member =>) {
     console.log('User' + member.user.username + 'has joined the server!')
 
-    var role = member.guild.roles.get('387029449574580234');
+    var role = member.guild.roles.find('name', 'Meme Peasants');
     member.addRole(role)
 }
 
