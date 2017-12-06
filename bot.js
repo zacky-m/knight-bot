@@ -23,15 +23,15 @@ client.on('message', (message) => {
         else if ((message.member.roles.some(r => ['Meme King', 'Edge Lords', 'Knight Boi'].includes(r.name)))) {
             console.log("Lol nice meme"); //Literally just bullshit console logging cause..I need this else if statement.
         }
-        else if (!message.content.includes('?')) {
+        if (!message.content.includes('?')) {
             message.delete()
             message.author.send('Please put a question mark in your message!')
         }
-        else if ((!message.isMentioned(kRole)) && message.content.includes('?')) {
+        else if (!message.isMentioned(kRole)) {
             message.delete()
             message.author.send('Please put @Meme King or @Edge Lords in your message!')
         }
-        else if ((!message.isMentioned(eRole)) && message.content.includes('?')) {
+        else if (!message.isMentioned(eRole)) {
             message.delete()
             message.author.send('Please put @Meme King or @Edge Lords in your message!')
         }
