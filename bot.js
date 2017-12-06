@@ -32,11 +32,11 @@ client.on('message', (message) => {
             message.delete()
             message.author.send('Please put @Meme King or @Edge Lords in your message!')
         }
-        else if (!message.content.includes('?') && (message.isMentioned('386959013809487873') || !message.isMentioned('386960113539481610'))) {
+        else if (!message.content.includes('?') && (message.isMentioned('386959013809487873'))) {
             message.delete()
             message.author.send('Please put a question mark in your message!')
         }
-        else if (!message.content.includes('?') && (!message.isMentioned('386959013809487873') || message.isMentioned('386960113539481610'))) {
+        else if (!message.content.includes('?') && (message.isMentioned('386960113539481610'))) {
             message.delete()
             message.author.send('Please put a question mark in your message!')
         }
