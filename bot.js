@@ -35,10 +35,6 @@ client.on('message', (message) => {
             message.delete()
             message.author.send('Please put @Meme King or @Edge Lords in your message!')
         }
-        if (!message.content.includes('?') && (message.isMentioned(kRole) || message.isMentioned(eRole))) {
-            message.delete()
-            message.author.send('Please put a question mark in your message!') //what
-        }
     }
 });
 
