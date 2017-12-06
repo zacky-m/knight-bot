@@ -15,7 +15,7 @@ client.on('message', (message) => {
 
     //Deleting Specific Messages
     if (message.channel.id === '387004194554642442') { //Checks if the message is in the specific channel
-        if (message.content.includes('?')) { //Checks if the message is not a question, if it's not, the following code will run
+        if (!(message.content.includes('?'))) { //Checks if the message is not a question, if it's not, the following code will run
             message.delete() //This deletes the message
             message.author.send('Please put a question mark in your message!')
         }
