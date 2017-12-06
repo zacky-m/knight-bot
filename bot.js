@@ -27,13 +27,17 @@ client.on('message', (message) => {
             message.delete()
             message.author.send('Please put a question mark in your message!')
         }
-        else if (!message.isMentioned(kRole)) {
+        else if ((!message.isMentioned(kRole)) && message.content.includes('?')) {
             message.delete()
-            message.author.send(`Please put ${kRole} or ${eRole} in your message!`)
+            message.author.send('Please put @Meme King or @Edge Lords in your message!')
         }
-        else if (!message.isMentioned(eRole)) {
+        else if ((!message.isMentioned(eRole)) && message.content.includes('?')) {
             message.delete()
-            message.author.send(`Please put ${kRole} or ${eRole} in your message!`)
+            message.author.send('Please put @Meme King or @Edge Lords in your message!')
+        }
+        else {
+            message.delete()
+            message.author.send('Please put @Meme King or @Edge Lords as well as a question mark in your message!')
         }
     }
 });
