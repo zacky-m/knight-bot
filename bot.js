@@ -30,7 +30,7 @@ client.on('message', (message) => {
         }
         if (!message.content.includes('?') && (message.isMentioned(kRole) || message.isMentioned(eRole))) {
             message.delete()
-            message.author.send('Please put a question mark in your message!')
+            message.author.send('Please put a question mark in your message!')//bull
         }
     }
 });
