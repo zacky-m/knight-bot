@@ -15,7 +15,7 @@ client.on('message', (message) => {
 
     //Deleting Specific Messages
     if (message.channel.id === '387004194554642442') { //Checks if the message is in the specific channel
-        if (message.content.includes('?')) { //Checks if the message is not a question, if it's not, the following code will run
+        if (message.content.includes('?') && message.content.includes('@Meme King') && message.content.includes('@Edge Lords')) { //Checks if the message is not a question, if it's not, the following code will run
             message.channel.send('Thank you for your question! You should receive an answer soon.')
         }
         else if ((message.member.roles.some(r => ['Meme King', 'Edge Lords', 'Knight Boi'].includes(r.name)))) {
