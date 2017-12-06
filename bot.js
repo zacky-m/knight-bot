@@ -7,8 +7,8 @@ client.on('message', (message) => {
     var sender = message.author; //The person who sent the message
     var msg = message.content.toUpperCase(); //Takes the message, and makes it all uppercase
     var prefix = '!Kn' //The text before commands, you can set this to whatever you want
-    var kRole = message.guild.roles.get("386959013809487873");
-    var eRole = message.guild.roles.get("386960113539481610");
+    let kRole = message.guild.roles.get("386959013809487873");
+    let eRole = message.guild.roles.get("386960113539481610");
 
     //Ping/Pong Command
     if (message.content.startsWith(prefix + "ping")) {
@@ -30,6 +30,10 @@ client.on('message', (message) => {
         if (message.content.includes('?') && (!message.isMentioned(kRole) || !message.isMentioned(eRole))) {
             message.delete()
             message.author.send('Please put @Meme King or @Edge Lords in your message!')
+        }
+        if (!message.content.includes('?') && (message.isMentioned(kRole) || message.isMentioned(eRole))) {
+            message.delete()
+            message.author.send('Please put a question mark in your message!')
         }
     }
 });
