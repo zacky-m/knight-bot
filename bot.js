@@ -18,6 +18,9 @@ client.on('message', (message) => {
         if (message.content.includes('?')) { //Checks if the message is not a question, if it's not, the following code will run
             message.channel.send('Thank you for your question! You should receive an answer soon.')
         }
+        else {
+            message.delete()
+        }
     }
 });
 
