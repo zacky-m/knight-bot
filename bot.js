@@ -16,7 +16,13 @@ client.on('message', (message) => {
     //Deleting Specific Messages
     if (message.channel.id === '387004194554642442') { //Checks if the message is in the specific channel
         if (message.content.includes('?')) { //Checks if the message is not a question, if it's not, the following code will run
-            message.channel.send('Thank you for your question! You should receive an answer soon.')
+            if (message.content.includes('@Meme King') && ('@Edge Lords')) {
+                message.channel.send('Thank you for your question! You should receive an answer soon.')
+            }
+            else {
+                message.delete()
+                message.author.send('Please put either @Meme King or @Edge Lords in your message!')
+            }
         }
         else if ((message.member.roles.some(r => ['Meme King', 'Edge Lords', 'Knight Boi'].includes(r.name)))) {
             console.log("Lol nice meme"); //Literally just bullshit console logging cause..I need this else if statement.
