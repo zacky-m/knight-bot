@@ -24,14 +24,6 @@ client.on('message', (message) => {
         else if ((message.member.roles.some(r => ['Meme King', 'Edge Lords', 'Knight Boi'].includes(r.name)))) {
             console.log("Lol nice meme"); //Literally just bullshit console logging cause..I need this else if statement.
         }
-        else if (!message.content.includes('?') && (!message.isMentioned('386959013809487873') || !message.isMentioned('386960113539481610'))) {
-            message.delete()
-            message.author.send('Please put @Meme King or @Edge Lords as well as a question mark in your message!')
-        }
-        else if (message.content.includes('?') && (!message.isMentioned('386959013809487873') || !message.isMentioned('386960113539481610'))) {
-            message.delete()
-            message.author.send('Please put @Meme King or @Edge Lords in your message!')
-        }
         else if (!message.content.includes('?') && (message.isMentioned('386959013809487873'))) {
             message.delete()
             message.author.send('Please put a question mark in your message!')
@@ -39,6 +31,14 @@ client.on('message', (message) => {
         else if (!message.content.includes('?') && (message.isMentioned('386960113539481610'))) {
             message.delete()
             message.author.send('Please put a question mark in your message!')
+        }
+        else if (!message.content.includes('?') && (!message.isMentioned('386959013809487873') || !message.isMentioned('386960113539481610'))) {
+            message.delete()
+            message.author.send('Please put @Meme King or @Edge Lords as well as a question mark in your message!')
+        }
+        else if (message.content.includes('?') && (!message.isMentioned('386959013809487873') || !message.isMentioned('386960113539481610'))) {
+            message.delete()
+            message.author.send('Please put @Meme King or @Edge Lords in your message!')
         }
     }
 });
