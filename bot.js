@@ -16,7 +16,7 @@ client.on('message', (message) => {
     //Deleting Specific Messages
     if (message.channel.id === '387004194554642442') { //Checks if the message is in the specific channel
         if (message.content.includes('?')) { //Checks if the message is not a question, if it's not, the following code will run
-            if (message.content.includes('@Meme King') && ('@Edge Lords')) {
+            if (message.content.includes('@Meme King') || ('@Edge Lords')) {
                 message.channel.send('Thank you for your question! You should receive an answer soon.')
             }
             else {
@@ -37,6 +37,3 @@ client.on('message', (message) => {
 client.on('ready', () => {
     console.log("I am ready!");
 });
-
-
-client.login(process.env.BOT_TOKEN);
