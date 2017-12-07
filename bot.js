@@ -15,34 +15,41 @@ client.on('message', (message) => {
 
     //Deleting Specific Messages
     if (message.channel.id === '387004194554642442') { //Checks if the message is in the specific channel
-        if (message.content.includes('?') && (message.isMentioned('386959013809487873'))) { //Checks if the message is not a question, if it's not, the following code will run
-            message.channel.send('Thank you for your question! You should receive an answer soon.');
+        if (message.content.includes('?') && (message.isMentioned('386959013809487873'))) { //Checks if the message has a question mark and an @Meme King
+            message.channel.send('Thank you for your question! You should receive an answer soon.'); //Sends a thank you message for the question.
         }
-        else if (message.content.includes('?') && (message.isMentioned('386960113539481610'))) {
+        else if (message.content.includes('?') && (message.isMentioned('386960113539481610'))) { //Checks if the message has a question mark and an @Edge Lords
             message.channel.send('Thank you for your question! You should receive an answer soon.');
         }
         else if ((message.member.roles.some(r => ['Meme King', 'Edge Lords', 'Knight Boi'].includes(r.name)))) {
             console.log("Lol nice meme"); //Literally just bullshit console logging cause..I need this else if statement.
         }
-        else if (!message.content.includes('?') && (message.isMentioned('386959013809487873'))) {
+        else if (!message.content.includes('?') && (message.isMentioned('386959013809487873'))) { //Checks if the message has @Meme King but not question mark
             message.delete()
             message.author.send('Please put a question mark in your message!')
         }
-        else if (!message.content.includes('?') && (message.isMentioned('386960113539481610'))) {
+        else if (!message.content.includes('?') && (message.isMentioned('386960113539481610'))) { //Checks if the message has @Edge Lords but not question mark
             message.delete()
             message.author.send('Please put a question mark in your message!')
         }
-        else if (!message.content.includes('?') && (!message.isMentioned('386959013809487873') || !message.isMentioned('386960113539481610'))) {
+        else if (!message.content.includes('?') && (!message.isMentioned('386959013809487873') || !message.isMentioned('386960113539481610'))) { //Checks if the message has no conditions met
             message.delete()
             message.author.send('Please put @Meme King or @Edge Lords as well as a question mark in your message!')
         }
-        else if (message.content.includes('?') && (!message.isMentioned('386959013809487873') || !message.isMentioned('386960113539481610'))) {
+        else if (message.content.includes('?') && (!message.isMentioned('386959013809487873') || !message.isMentioned('386960113539481610'))) { //Checks if the message has a question mark but no @Meme King or @Edge Lords
             message.delete()
             message.author.send('Please put @Meme King or @Edge Lords in your message!')
         }
     }
 });
 
+client.on('guildMemberAdd', member => { //Event for when a user joins the server
+    var nRole = member.guild.roles.find('name', 'Meme Peasants'); //Finding the "Meme Peasants" role
+
+    console.log('User' + member.user.username + 'has joined the server') //Sends a message to the console that someone has joined the server
+    member.addRole(nRole) //Adds the "Meme Peasants" role to the new user
+    
+}
 client.on('ready', () => {
     console.log("I am ready!");
 });
