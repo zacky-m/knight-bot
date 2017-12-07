@@ -44,12 +44,13 @@ client.on('message', (message) => {
 });
 
 client.on('guildMemberAdd', member => { //Event for when a user joins the server
-    var nRole = member.guild.roles.find('name', 'Meme Peasants'); //Finding the "Meme Peasants" role
+    var nRole = member.guild.roles.get('name', 'Meme Peasants'); //Finding the "Meme Peasants" role
 
     console.log('User' + member.user.username + 'has joined the server') //Sends a message to the console that someone has joined the server
     member.addRole(nRole) //Adds the "Meme Peasants" role to the new user
-    
-}
+
+});
+
 client.on('ready', () => {
     console.log("I am ready!");
 });
