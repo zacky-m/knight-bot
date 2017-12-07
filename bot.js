@@ -62,13 +62,6 @@ client.on('message', (message) => {
             message.author.send('Please put !RP before your command in the Adventurers Chat channels')
         }
     }
-
-    if (message.channel.id === '387106914342928414') {
-        if (!message.content.includes('!RP')) {
-            message.delete()
-            message.author.send('Please put !RP before your command in the Adventurers Chat channels')
-        }
-    }
 });
 
 client.on('guildMemberAdd', member => { //Event for when a user joins the server
