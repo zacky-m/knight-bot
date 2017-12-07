@@ -13,7 +13,7 @@ client.on('message', (message) => {
         message.channel.send("pong!");
     }
 
-    //Deleting Specific Messages
+    //Deleting Specific Messages In the AMA channel
     if (message.channel.id === '387004194554642442') { //Checks if the message is in the specific channel
         if (message.content.includes('?') && (message.isMentioned('386959013809487873'))) { //Checks if the message has a question mark and an @Meme King
             message.channel.send('Thank you for your question! You should receive an answer soon.'); //Sends a thank you message for the question.
@@ -39,6 +39,34 @@ client.on('message', (message) => {
         else if (message.content.includes('?') && (!message.isMentioned('386959013809487873') || !message.isMentioned('386960113539481610'))) { //Checks if the message has a question mark but no @Meme King or @Edge Lords
             message.delete()
             message.author.send('Please put @Meme King or @Edge Lords in your message!')
+        }
+    }
+
+    if (message.channel.id === '387081713223991297') {
+        if (!message.content.includes('!RP')) {
+            message.deletet()
+            message.author.send('Please put !RP before your command in the Adventurers Chat channels')
+        }
+    }
+
+    if (message.channel.id === '387081742848098304') {
+        if (!message.content.includes('!RP')) {
+            message.deletet()
+            message.author.send('Please put !RP before your command in the Adventurers Chat channels')
+        }
+    }
+
+    if (message.channel.id === '387081786699546625') {
+        if (!message.content.includes('!RP')) {
+            message.deletet()
+            message.author.send('Please put !RP before your command in the Adventurers Chat channels')
+        }
+    }
+
+    if (message.channel.id === '387106914342928414') {
+        if (!message.content.includes('!RP')) {
+            message.deletet()
+            message.author.send('Please put !RP before your command in the Adventurers Chat channels')
         }
     }
 });
