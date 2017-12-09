@@ -43,21 +43,21 @@ client.on('message', (message) => {
     }
 
     if (message.channel.id === '387081713223991297') {
-        if (!message.content.includes('!RP')) {
+        if ((!message.content.includes('!RP')) && (!message.member.roles.has('389145363807862804'))) {
             message.delete()
             message.author.send('Please put !RP before your command in the Adventurers Chat channels')
         }
     }
 
     if (message.channel.id === '387081742848098304') {
-        if (!message.content.includes('!RP')) {
+        if ((!message.content.includes('!RP')) && (!message.member.roles.has('389145363807862804'))) {
             message.delete()
             message.author.send('Please put !RP before your command in the Adventurers Chat channels')
         }
     }
 
     if (message.channel.id === '387081786699546625') {
-        if (!message.content.includes('!RP')) {
+        if ((!message.content.includes('!RP')) && (!message.member.roles.has('389145363807862804'))) {
             message.delete()
             message.author.send('Please put !RP before your command in the Adventurers Chat channels')
         }
