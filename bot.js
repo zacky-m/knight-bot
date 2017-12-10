@@ -41,27 +41,6 @@ client.on('message', (message) => {
             message.author.send('Please put @Meme King or @Edge Lords in your message!')
         }
     }
-
-    if (message.channel.id === '387081713223991297') {
-        if ((!message.content.includes('!RP')) && (!message.member.roles.has('389145363807862804'))) {
-            message.delete()
-            message.author.send('Please put !RP before your command in the Adventurers Chat channels')
-        }
-    }
-
-    if (message.channel.id === '387081742848098304') {
-        if ((!message.content.includes('!RP')) && (!message.member.roles.has('389145363807862804'))) {
-            message.delete()
-            message.author.send('Please put !RP before your command in the Adventurers Chat channels')
-        }
-    }
-
-    if (message.channel.id === '387081786699546625') {
-        if ((!message.content.includes('!RP')) && (!message.member.roles.has('389145363807862804'))) {
-            message.delete()
-            message.author.send('Please put !RP before your command in the Adventurers Chat channels')
-        }
-    }
 });
 
 client.on('guildMemberAdd', member => { //Event for when a user joins the server
