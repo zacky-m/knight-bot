@@ -48,6 +48,13 @@ client.on('message', (message) => {
             message.pin()
         }
     }
+
+    if (message.channel.id === '387075592929017867') {
+        if (message.content.includes(prefix + 'level')) {
+            message.channel.send('lol ok')
+        }
+    }
+
 });
 
 client.on('guildMemberAdd', member => { //Event for when a user joins the server
