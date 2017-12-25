@@ -10,9 +10,9 @@ client.on('message', (message) => {
     var qRole = message.guild.roles.get('394259764671938572')
 
     const embed = new Discord.RichEmbed()
-        .setTitle('What?')
-        .setColor(0x00AE86)
-        .setDescription('What even is this meme?');
+        .setColor(0xF25353)
+        .setAuthor(sender)
+
 
     //Ping/Pong Command
     if (message.content.startsWith(prefix + "ping")) {
