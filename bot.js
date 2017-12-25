@@ -41,12 +41,18 @@ client.on('message', (message) => {
             message.author.send('Please put @Meme King or @Edge Lords in your message!')
         }
     }
+
+    if (message.channel.id === '386956245984215052') {
+        if (message.member.roles.has.('394259764671938572')) {
+            message.member.pin()
+        }
+    }
 });
 
 client.on('guildMemberAdd', member => { //Event for when a user joins the server
     var nRole = member.guild.roles.get('387029449574580234'); //Finding the "Meme Peasants" role
-    var royalID = client.channels.get("386968915688947714");
-    var nobleID = client.channels.get("387045242198818816");
+    var royalID = client.channels.get("386968915688947714"); //Finding the royal-meme-decree channel
+    var nobleID = client.channels.get("387045242198818816"); //Finding the noble-meme-decree channel
 
     console.log('User' + member.user.username + 'has joined the server') //Sends a message to the console that someone has joined the server
     member.addRole(nRole) //Adds the "Meme Peasants" role to the new user
