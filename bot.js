@@ -11,10 +11,8 @@ client.on('message', (message) => {
     var level = 1;
 
     const embed = new Discord.RichEmbed()
-        .setTitle('This is a test title!')
         .setAuthor(message.author.username, message.author.displayAvatarURL)
         .setColor(0x00AE86)
-        .setDescription('This is a test description!')
         .addField('Your Level:', level, true)
 
 
