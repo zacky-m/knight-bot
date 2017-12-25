@@ -51,7 +51,12 @@ client.on('message', (message) => {
 
     if (message.channel.id === '387075592929017867') {
         if (message.content.includes(prefix + 'level')) {
-            message.channel.send('lol ok')
+            message.channel.send({
+                embed: {
+                    color: 3447003,
+                    description: "A very simple Embed!"
+                }
+            });
         }
     }
 
