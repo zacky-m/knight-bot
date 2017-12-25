@@ -15,7 +15,7 @@ client.on('message', (message) => {
         .setAuthor(message.author.username, message.author.displayAvatarURL)
         .setColor(0x00AE86)
         .setDescription('This is a test description!')
-        .addField('Your Level:', level)
+        .addField('Your Level:', level, true)
 
 
     //Ping/Pong Command
