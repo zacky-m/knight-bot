@@ -43,7 +43,7 @@ client.on('message', (message) => {
         }
     }
 
-    if (message.channel.id === '387075592929017867') {
+    if (message.channel.id === '386956245984215052') {
         if (message.member.roles.has(qRole.id)) {
             message.pin()
         }
