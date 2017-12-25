@@ -49,7 +49,7 @@ client.on('guildMemberAdd', member => { //Event for when a user joins the server
     console.log('User' + member.user.username + 'has joined the server') //Sends a message to the console that someone has joined the server
     member.addRole(nRole) //Adds the "Meme Peasants" role to the new user
 
-    member.guild.channels.get('386981942752706561').send(`** Welcome ${member.user}!`); //Gets the channel then sends the message
+    member.guild.channels.get('386981942752706561').send(`**Welcome ${member.user}!**`); //Gets the channel then sends the message
 
 });
 
