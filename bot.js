@@ -44,7 +44,7 @@ client.on('message', (message) => {
 
     if (message.channel.id === '386956245984215052') {
         if (message.member.roles.has.('394259764671938572')) {
-            message.channel.findMessage().pin()
+            message.channel.send('Hah nice');
         }
     }
 });
