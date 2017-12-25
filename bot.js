@@ -11,7 +11,7 @@ client.on('message', (message) => {
 
     const embed = new Discord.RichEmbed()
         .setColor(0xF25353)
-        .setAuthor(sender)
+        .setAuthor(member.user.username)
 
 
     //Ping/Pong Command
