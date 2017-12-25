@@ -48,8 +48,9 @@ client.on('guildMemberAdd', member => { //Event for when a user joins the server
 
     console.log('User' + member.user.username + 'has joined the server') //Sends a message to the console that someone has joined the server
     member.addRole(nRole) //Adds the "Meme Peasants" role to the new user
-    //Welcome to the Kingdom! Please check out the "royal-meme-decree" channel for all of the server rules as well as the "noble-meme-decree" for every channel rules and regulations!
-    member.guild.channels.get('386981942752706561').send('Welcome to the Kingdom **' + member.user.username + '!** Please check out the #royal-meme-decree channel for all of the server rules as well as the #noble-meme-decree for every channel rules and regulations!')
+
+    const defaultChannel = member.guild.channels.find(c => c.permissionsFor(guild.me).has("SEND_MESSAGES"));
+    defaultChannel.send(`Welcome ${member.user} to this server.`).catch(console.error);
 });
 
 client.on('ready', () => {
