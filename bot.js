@@ -49,8 +49,13 @@ client.on('guildMemberAdd', member => { //Event for when a user joins the server
     console.log('User' + member.user.username + 'has joined the server') //Sends a message to the console that someone has joined the server
     member.addRole(nRole) //Adds the "Meme Peasants" role to the new user
 
-    const defaultChannel = member.guild.channels.find(c => c.permissionsFor(guild.me).has("SEND_MESSAGES"));
-    defaultChannel.send(`Welcome ${member.user} to this server.`).catch(console.error);
+    let guild = member.guild;
+    const embed = new Discord.RichEmbed()
+        .setColor(0x00AE86)
+        .setTimestamp()
+        .addField('User Update',
+        `${member.user} has joined! :white_check_mark: `)
+    guild.defaultChannel.sendEmbed(embed);
 });
 
 client.on('ready', () => {
