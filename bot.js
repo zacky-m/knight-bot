@@ -11,7 +11,7 @@ client.on('message', (message) => {
 
     const embed = new Discord.RichEmbed()
         .setTitle('This is a test title!')
-        .setAuthor(member.user.username, "https://i.imgur.com/lm8s41J.png")
+        .setAuthor(user.username, user.avatarURL)
         .setColor(0x00AE86)
         .setDescription('This is a test description!')
 
