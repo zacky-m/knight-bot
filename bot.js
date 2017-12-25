@@ -8,12 +8,14 @@ client.on('message', (message) => {
     var msg = message.content.toUpperCase(); //Takes the message, and makes it all uppercase
     var prefix = '!Kn' //The text before commands, you can set this to whatever you want
     var qRole = message.guild.roles.get('394259764671938572')
+    var level = 1;
 
     const embed = new Discord.RichEmbed()
         .setTitle('This is a test title!')
         .setAuthor(message.author.username, message.author.displayAvatarURL)
         .setColor(0x00AE86)
         .setDescription('This is a test description!')
+        .addField('Your Level:', level)
 
 
     //Ping/Pong Command
