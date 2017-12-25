@@ -9,6 +9,11 @@ client.on('message', (message) => {
     var prefix = '!Kn' //The text before commands, you can set this to whatever you want
     var qRole = message.guild.roles.get('394259764671938572')
 
+    const embed = new Discord.RichEmbed()
+        .setTitle('What?')
+        .setColor(0x00AE86)
+        .setDescription('What even is this meme?');
+
     //Ping/Pong Command
     if (message.content.startsWith(prefix + "ping")) {
         message.channel.send("pong!");
@@ -51,12 +56,7 @@ client.on('message', (message) => {
 
     if (message.channel.id === '387075592929017867') {
         if (message.content.includes(prefix + 'level')) {
-            message.channel.send({
-                embed: {
-                    color: 3447003,
-                    description: "A very simple Embed!"
-                }
-            });
+            message.channel.send({ embed });
         }
     }
 
