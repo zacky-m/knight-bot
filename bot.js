@@ -10,9 +10,9 @@ client.on('message', (message) => {
     var qRole = message.guild.roles.get('394259764671938572')
 
     const embed = new Discord.RichEmbed()
-        .setColor(0xF25353)
         .setTitle('This is a test title!')
-        .setAuthor('Author name')
+        .setAuthor("Author Name", "https://i.imgur.com/lm8s41J.png")
+        .setColor(0x00AE86)
         .setDescription('This is a test description!')
 
 
