@@ -12,6 +12,8 @@ client.on('message', (message) => {
     const embed = new Discord.RichEmbed()
         .setColor(0xF25353)
         .setAuthor(member.user.username)
+        .setTitle('This is a test title!')
+        .setDescription('This is a test description!')
 
 
     //Ping/Pong Command
