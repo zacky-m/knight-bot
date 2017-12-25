@@ -12,7 +12,7 @@ client.on('message', (message) => {
     const embed = new Discord.RichEmbed()
         .setColor(0xF25353)
         .setTitle('This is a test title!')
-        .setAuthor(member.user.username)
+        .setAuthor('Author name')
         .setDescription('This is a test description!')
 
 
