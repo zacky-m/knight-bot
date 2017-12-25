@@ -44,7 +44,7 @@ client.on('message', (message) => {
     }
 
     if (message.channel.id === '387075592929017867') {
-        if (message.member.roles.has(myRole)) {
+        if (message.member.roles.has(myRole.id)) {
             message.channel.send('Hah nice');
         }
     }
