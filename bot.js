@@ -50,15 +50,17 @@ client.on('message', (message) => {
         }
     }
 
-    if (message.channel.id === '386956245984215052') {
-        if (message.member.roles.has(qRole.id)) {
-            message.pin()
+    if (message.channel.id === '386956245984215052') { //Checks if the message is in the memes channel
+        if (message.member.roles.has(qRole.id)) { //Checks if the sender has the role
+            message.pin() //Pins the message
         }
     }
 
-    if (message.channel.id === '387075592929017867') {
-        if (message.content.includes(prefix + 'level')) {
-            message.channel.send({ embed });
+    if (message.channel.id === '387075592929017867') { //Checks if the message is in the test channel
+        level = level + 1;
+
+        if (message.content.includes(prefix + 'level')) { //Checks if the message has the prefix + the word level
+            message.channel.send({ embed }); //Sends the embedded message
         }
     }
 
