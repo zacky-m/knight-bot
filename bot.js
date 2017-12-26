@@ -1,22 +1,6 @@
 var Discord = require("discord.js");
 var client = new Discord.Client();
 
-client.pointsMonitor(client, message);
-
-client.pointsMonitor = (client, message) => {
-    if (message.channel.type !== 'text') return;
-    const settings = client.settings.get(message.guild.id);
-    if (message.content.startswith(settings.prefix)) return;
-    const score = client.points.get(message.author.id) || { points: 0, level: 0 };
-    score.points++
-    client.points.set(message.author.id, score);
-
-    if (message.channel.id === '387075592929017867') { //Checks if the message is in the test channel
-        if (!message.member.roles.has(kRole.id)) {
-            message.delete()
-        }
-}
-
 client.on('message', (message) => {
 
     //Variables
