@@ -1,5 +1,9 @@
 var Discord = require("discord.js");
 var client = new Discord.Client();
+const Enmap = require("enmap");
+const EnmapLevel = require("enmap-level");
+const pointProvider = new EnmapLevel({ name: "points" });
+this.points = new Enmap({ provider: pointProvider });
 
 client.on('message', (message) => {
 
@@ -9,12 +13,12 @@ client.on('message', (message) => {
     var prefix = '!Kn' //The text before commands, you can set this to whatever you want
     var qRole = message.guild.roles.get('394259764671938572')
     var kRole = message.guild.roles.get('387808932900503565')
-    var level = 1;
+    const score = client.points.get(message.author.id) || { points: 0, level: 0 };
 
     const embed = new Discord.RichEmbed()
         .setAuthor(message.author.username, message.author.displayAvatarURL)
         .setColor(0x00AE86)
-        .addField('Your Level:', level, true)
+        .addField('Your Level:', score.points, true)
 
 
     //Ping/Pong Command
@@ -59,7 +63,7 @@ client.on('message', (message) => {
 
     if (message.channel.id === '387075592929017867') { //Checks if the message is in the test channel
         if (!message.member.roles.has(kRole.id)) {
-
+            score.points++
         }
         if (message.content.includes(prefix + 'level')) { //Checks if the message has the prefix + the word level
             message.channel.send({ embed }); //Sends the embedded message
