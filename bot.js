@@ -9,12 +9,11 @@ client.pointsMonitor = (client, message) => {
     if (message.content.startswith(settings.prefix)) return;
     const score = client.points.get(message.author.id) || { points: 0, level: 0 };
     score.points++
-    const score = client.points.get(messag.eauthor.id) || { points: 0, level: 0 };
-    if (score.level < curLevel) {
-        message.reply(`You have leveled up to level **${curLevel}**!`);
-        score.level = curLevel;
-    }
     client.points.set(message.author.id, score);
+
+    if (!message.member.roles.has(kRole.id)) {
+        message.delete();
+    }
 }
 
 client.on('message', (message) => {
