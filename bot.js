@@ -1,8 +1,5 @@
 var Discord = require("discord.js");
 var client = new Discord.Client();
-var fs = require('fs');
-
-var userData = JSON.parse(fs.readFileSync('Storage/userData.json', 'utf8')); //Calling the file just made using fs
 
 client.on('message', (message) => {
 
@@ -12,11 +9,12 @@ client.on('message', (message) => {
     var prefix = '!Kn' //The text before commands, you can set this to whatever you want
     var qRole = message.guild.roles.get('394259764671938572')
     var kRole = message.guild.roles.get('387808932900503565')
+    var level = 1;
 
     const embed = new Discord.RichEmbed()
         .setAuthor(message.author.username, message.author.displayAvatarURL)
         .setColor(0x00AE86)
-        .setField('Your Level: ', userData[sender.id].messagesSent, true)
+        .addField('Your Level:', level, true)
 
 
     //Ping/Pong Command
@@ -59,21 +57,13 @@ client.on('message', (message) => {
         }
     }
 
-    if (!userData[sender.id]) userdata[sender.id] = { //Checking if their username is there before wriitng to the file
-        messagesSent: 0
-    }
-
     if (message.channel.id === '387075592929017867') { //Checks if the message is in the test channel
         if (!message.member.roles.has(kRole.id)) {
-            userData[sender.id].messagesSent++; //Increasing the messagesSent
+
         }
         if (message.content.includes(prefix + 'level')) { //Checks if the message has the prefix + the word level
             message.channel.send({ embed }); //Sends the embedded message
         }
-    }
-
-    fs.write('Storage/userData.json', JSON.stringify(userData), (err) => {
-        if (err) console.error(err); //We just want it to log if there is an error.
     }
 
 });
@@ -85,7 +75,7 @@ client.on('guildMemberAdd', member => { //Event for when a user joins the server
 
     console.log('User' + member.user.username + 'has joined the server') //Sends a message to the console that someone has joined the server
     member.addRole(nRole) //Adds the "Meme Peasants" role to the new user
-    
+
     member.guild.channels.get('386981942752706561').send(`**Welcome ${member.user}!** Please check out the ${royalID} and the ${nobleID} for all the rules! `); //Gets the channel then sends the message
 
 });
