@@ -1,5 +1,7 @@
 var Discord = require("discord.js");
 var client = new Discord.Client();
+const sql = require("sqlite");
+sql.open("./score.sqlite");
 
 client.on('message', (message) => {
 
@@ -16,6 +18,30 @@ client.on('message', (message) => {
         .setColor(0x00AE86)
         .addField('Your Level:', level, true)
 
+    if (message.author.bot) return;
+    if (message.channel.type === "dm") return;
+
+    sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
+        if (!row) {
+            sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [message.author.id, 1, 0]);
+        } else {
+            sql.run(`UPDATE scores SET points = ${row.points + 1} WHERE userId = ${message.author.id}`);
+        }
+    }).catch(() => {
+        console.error;
+        sql.run("CREATE TABLE IF NOT EXISTS scores (userId TEXT, points INTEGER, level INTEGER)").then(() => {
+            sql.run("INSERT INTO scores (userId, points, level) VALUES (?, ?, ?)", [message.author.id, 1, 0]);
+        });
+    });
+
+    if (!message.content.startsWith(prefix)) return;
+
+    if (message.content.startsWith(prefix + "points")) {
+        sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {
+            if (!row) return message.reply("Your current level is 0");
+            message.reply(`Your current level is ${row.level}`);
+        });
+    } else
 
     //Ping/Pong Command
     if (message.content.startsWith(prefix + "ping")) {
