@@ -1,8 +1,6 @@
 var Discord = require("discord.js");
 var client = new Discord.Client();
 
-client.pointsMonitor(client, message);
-
 client.pointsMonitor = (client, message) => {
     if (message.channel.type !== 'text') return;
     const settings = client.settings.get(message.guild.id);
