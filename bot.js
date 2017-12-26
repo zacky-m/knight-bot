@@ -57,8 +57,7 @@ client.on('message', (message) => {
     }
 
     if (message.channel.id === '387075592929017867') { //Checks if the message is in the test channel
-        level = level + 1;
-
+        message.channel.send('haha ecks dee')
         if (message.content.includes(prefix + 'level')) { //Checks if the message has the prefix + the word level
             message.channel.send({ embed }); //Sends the embedded message
         }
