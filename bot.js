@@ -1,8 +1,5 @@
 var Discord = require("discord.js");
 var client = new Discord.Client();
-var fs = require('fs');
-
-var userData = JSON.parse(fs.readFileSync('Storage/userData.json','utf8'));
 
 client.on('message', (message) => {
 
@@ -24,6 +21,8 @@ client.on('message', (message) => {
     if (message.content.startsWith(prefix + "ping")) {
         message.channel.send("pong!");
     }
+
+    if (message.channel.type === 'dm') return;
 
     //Deleting Specific Messages In the AMA channel
     if (message.channel.id === '387004194554642442') { //Checks if the message is in the specific channel
@@ -68,15 +67,6 @@ client.on('message', (message) => {
             message.channel.send({ embed }); //Sends the embedded message
         }
     }
-
-    if(!userData[sender.id]) userData[sender.id] = {
-      messagesSent: 0
-    }
-
-    userData[sender.id].messagesSent++;
-    fs.writeFile('Storage/userData.json', JSON.stringify(userData), (err) => {
-      if (err) console.error(err);
-    });
 
 });
 
