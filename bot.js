@@ -76,11 +76,12 @@ client.on('guildMemberAdd', member => { //Event for when a user joins the server
     var nRole = member.guild.roles.get('387029449574580234'); //Finding the "Meme Peasants" role
     var royalID = client.channels.get("386968915688947714"); //Finding the royal-meme-decree channel
     var nobleID = client.channels.get("387045242198818816"); //Finding the noble-meme-decree channel
+    var amaID = client.channels.get("387004194554642442");
 
     console.log('User' + member.user.username + 'has joined the server') //Sends a message to the console that someone has joined the server
     member.addRole(nRole) //Adds the "Meme Peasants" role to the new user
 
-    member.guild.channels.get('386981942752706561').send(`**Welcome ${member.user}!** Please check out the ${royalID} and the ${nobleID} for all the rules! `); //Gets the channel then sends the message
+    member.guild.channels.get('386981942752706561').send(`**Welcome ${member.user}!** Please check out the ${royalID} and the ${nobleID} for all the rules! If you have any questions, go to the ${amaID} and ask any questions to ${kRole}!`); //Gets the channel then sends the message
 
 });
 
