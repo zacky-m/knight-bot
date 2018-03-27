@@ -7,10 +7,10 @@ client.on('message', (message) => {
     var sender = message.author; //The person who sent the message
     var msg = message.content.toUpperCase(); //Takes the message, and makes it all uppercase
     var prefix = '!Kn' //The text before commands, you can set this to whatever you want
-    var qRole = message.guild.roles.get('394259764671938572')
+    var jRole = message.guild.roles.get('387002210233614336')
     var kRole = message.guild.roles.get('386959013809487873')
     var eRole = message.guild.roles.get('386960113539481610')
-    var bRole = message.guild.roles.get('387808932900503565')
+    var botRole = message.guild.roles.get('387808932900503565')
     var memeID = client.channels.get('386956245984215052')
     var level = 1;
 
@@ -57,18 +57,11 @@ client.on('message', (message) => {
     }
 
     if (message.channel.id === '386956245984215052') { //Checks if the message is in the memes channel
-        if (message.member.roles.has(qRole.id)) { //Checks if the sender has the role
-          if(message.content.includes(prefix + 'pin')){
-            memeID.fetchMessages({ limit : 2 })
-            .then(message.delete())
-            .then(message.pin())
-          }
-        }
-        if (message.member.roles.has(eRole.id) && (!message.member.roles.has(qRole.id))) {
+        if (message.member.roles.has(eRole.id) && (!message.member.roles.has(jRole.id))) {
           message.delete()
           message.author.send('You do not have the jester role! Please post another meme to the meme approval chat to get it approved!')
         }
-        if (!message.member.roles.has(qRole.id) && (!message.member.roles.has(kRole.id)) && (!message.member.roles.has(bRole.id))) {
+        if (!message.member.roles.has(jRole.id) || (!message.member.roles.has(kRole.id)) || (!message.member.roles.has(botRole.id))) {
           message.delete()
           message.author.send('You do not have the jester role! Please post another meme to the meme approval chat to get it approved!')
         }
