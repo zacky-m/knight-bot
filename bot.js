@@ -10,6 +10,8 @@ client.on('message', (message) => {
     var qRole = message.guild.roles.get('394259764671938572')
     var kRole = message.guild.roles.get('386959013809487873')
     var eRole = message.guild.roles.get('386960113539481610')
+    var bRole = message.guild.roles.get('387808932900503565')
+    var memeID = client.channels.get('386956245984215052')
     var level = 1;
 
     const embed = new Discord.RichEmbed()
@@ -57,14 +59,15 @@ client.on('message', (message) => {
     if (message.channel.id === '386956245984215052') { //Checks if the message is in the memes channel
         if (message.member.roles.has(qRole.id)) { //Checks if the sender has the role
           if(message.content.includes(prefix + 'pin')){
-            message.pin()
+            memeID.fetchMessages({ limit : 1 })
+            .then(message.pin())
           }
         }
         if (message.member.roles.has(eRole.id) && (!message.member.roles.has(qRole.id))) {
           message.delete()
           message.author.send('You do not have the jester role! Please post another meme to the meme approval chat to get it approved!')
         }
-        if (!message.member.roles.has(qRole.id) && (!message.member.roles.has(kRole.id))) {
+        if (!message.member.roles.has(qRole.id) && (!message.member.roles.has(kRole.id)) && (!message.member.roles.has(bRole.id))) {
           message.delete()
           message.author.send('You do not have the jester role! Please post another meme to the meme approval chat to get it approved!')
         }
