@@ -60,6 +60,7 @@ client.on('message', (message) => {
         if (message.member.roles.has(qRole.id)) { //Checks if the sender has the role
           if(message.content.includes(prefix + 'pin')){
             memeID.fetchMessages({ limit : 1 })
+            .then(message.delete())
             .then(message.pin())
           }
         }
