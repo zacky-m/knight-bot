@@ -8,7 +8,8 @@ client.on('message', (message) => {
     var msg = message.content.toUpperCase(); //Takes the message, and makes it all uppercase
     var prefix = '!Kn' //The text before commands, you can set this to whatever you want
     var qRole = message.guild.roles.get('394259764671938572')
-    var kRole = message.guild.roles.get('387808932900503565')
+    var kRole = message.guild.roles.get('386959013809487873')
+    var eRole = message.guild.roles.get('386960113539481610')
     var level = 1;
 
     const embed = new Discord.RichEmbed()
@@ -55,14 +56,21 @@ client.on('message', (message) => {
 
     if (message.channel.id === '386956245984215052') { //Checks if the message is in the memes channel
         if (message.member.roles.has(qRole.id)) { //Checks if the sender has the role
-            message.pin() //Pins the messages
+          if(message.content.includes(prefix + 'pin')){
+            message.pin()
+          }
+        }
+        if (message.member.roles.has(eRole.id) && (!message.member.roles.has(qRole.id))) {
+          message.delete()
+          message.author.send('You do not have the jester role! Please post another meme to the meme approval chat to get it approved!')
+        }
+        if (!message.member.roles.has(qRole.id) && (!message.member.roles.has(kRole.id))) {
+          message.delete()
+          message.author.send('You do not have the jester role! Please post another meme to the meme approval chat to get it approved!')
         }
     }
 
     if (message.channel.id === '387075592929017867') { //Checks if the message is in the test channel
-        if (!message.member.roles.has(kRole.id)) {
-
-        }
         if (message.content.includes(prefix + 'level')) { //Checks if the message has the prefix + the word level
             message.channel.send({ embed }); //Sends the embedded message
         }
