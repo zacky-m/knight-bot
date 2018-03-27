@@ -61,10 +61,6 @@ client.on('message', (message) => {
           message.delete()
           message.author.send('You do not have the jester role! Please post another meme to the meme approval chat to get it approved!')
         }
-        if (!message.member.roles.has(jRole.id) || (!message.member.roles.has(kRole.id)) || (!message.member.roles.has(botRole.id))) {
-          message.delete()
-          message.author.send('You do not have the jester role! Please post another meme to the meme approval chat to get it approved!')
-        }
     }
 
     if (message.channel.id === '387075592929017867') { //Checks if the message is in the test channel
